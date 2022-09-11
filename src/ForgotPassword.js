@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {API} from "./global.js";
 
 function ForgotPassword() {
   let [email, setEmail] = useState("");
@@ -10,7 +11,7 @@ function ForgotPassword() {
   function onSubmit(e) {
     e.preventDefault();
     let obj = { email: email };
-    fetch(`http://127.0.0.1:4600/sendResetLink`, {
+    fetch(`${API}/sendResetLink`, {
       method: "PUT",
       body: JSON.stringify(obj),
       headers: { "content-type": "application/json" },
@@ -55,7 +56,7 @@ function ForgotPassword() {
             type="button"
             onClick={() => {
               let obj = { email: email };
-              fetch(`http://127.0.0.1:4600/verifyEmail`, {
+              fetch(`${API}/verifyEmail`, {
                 method: "POST",
                 body: JSON.stringify(obj),
                 headers: { "content-type": "application/json" },

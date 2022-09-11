@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import * as yup from 'yup';
 import { ShowBufferImg } from "./App";
+import {API} from "./global.js";
 // import { Link } from 'react-router-dom';
 
 //called when submit button in url shortener page is clicked
@@ -37,7 +38,7 @@ export function CreateShortUrl() {
       values.email = email;
 
       setBuffer(true);
-      fetch(`http://127.0.0.1:4600/shorten`, {
+      fetch(`${API}/shorten`, {
         method: "POST",
         body: JSON.stringify(values),
         headers: { "content-type": "application/json" }

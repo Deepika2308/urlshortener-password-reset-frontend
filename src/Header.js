@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import {useEffect,useState} from 'react';
+import {API} from "./global.js";
 
 export function Header() {
   return (
@@ -51,14 +52,14 @@ function DashboardMonthlyCounts(){
   let[monthlyCounts,setmonthlyCounts] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:4600/getDailyCount")
+    fetch(`${API}/getDailyCount`)
     .then(response => response.json())
     .then(data => {
       
       setCounts(data);
     });
 
-    fetch("http://127.0.0.1:4600/getMonthlyCount")
+    fetch(`${API}/getMonthlyCount`)
     .then(response => response.json())
     .then(data => {
      

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import {useFormik} from 'formik';
 import {Modal} from 'react-bootstrap';
 import {useState} from 'react';
+import {API} from "./global.js";
 
 export function Register(){
     let navigate= useNavigate();
@@ -13,7 +14,7 @@ export function Register(){
         initialValues:{fname:"",lname:"",email:"",password:""},
         onSubmit:(values) => {
           setBufferImg(true);
-            fetch(`http://127.0.0.1:4600/register`,{
+            fetch(`${API}/register`,{
                 method:"POST",
                 body:JSON.stringify(values),
                 headers:{"content-type":"application/json"},

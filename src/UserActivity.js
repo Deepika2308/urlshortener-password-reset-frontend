@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import {Link} from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import {API} from "./global.js";
 
 export function UserActivity() {
 
@@ -19,7 +19,7 @@ let[len,setLen] = useState(true);
 let userEmail = user.email;
 
 useEffect(() => {
-  fetch(`http://127.0.0.1:4600/acitivity/${userEmail}`)
+  fetch(`${API}/acitivity/${userEmail}`)
   .then(response => response.json())
   .then(data => {
     if(data.hasOwnProperty('error')){

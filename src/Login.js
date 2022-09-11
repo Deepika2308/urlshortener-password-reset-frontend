@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import {useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import {API} from "./global.js";
 
 export function Login() {
   let navigate = useNavigate();
@@ -12,7 +13,7 @@ export function Login() {
   let { values, handleSubmit, handleChange } = useFormik({
     initialValues: { email: "", password: "" },
     onSubmit: (values) => {
-      fetch(`http://127.0.0.1:4600/login`, {
+      fetch(`${API}/login`, {
         method: "POST",
         body: JSON.stringify(values),
         headers: { "content-type": "application/json" },

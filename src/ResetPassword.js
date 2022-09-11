@@ -1,5 +1,6 @@
 import {useParams,Link} from 'react-router-dom';
 import {useState} from 'react';
+import {API} from "./global.js";
 
 export function ResetPassword()
 
@@ -13,7 +14,7 @@ export function ResetPassword()
     function onSubmit(e) {
         let obj={token:token,password:password};
         e.preventDefault();
-        fetch(`http://127.0.0.1:4600/saveNewPassword`,{
+        fetch(`${API}/saveNewPassword`,{
             method:"PUT",
             body:JSON.stringify(obj),
             headers:{"content-type":"application/json"},

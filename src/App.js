@@ -13,6 +13,7 @@ import { ResetPassword } from "./ResetPassword";
 import { HomePage } from "./HomePage";
 import { Header } from "./Header";
 import {UserActivity} from "./UserActivity";
+import {API} from "./global.js";
 
 
 function App() {
@@ -78,7 +79,7 @@ function App() {
 function CallLongUrl(){
   let {code} = useParams();
 
-    fetch(`http://127.0.0.1:4600/redirect/${code}`)
+    fetch(`${API}/redirect/${code}`)
     .then(response => response.json())
     .then(data => {
       if(data.hasOwnProperty('error')){
@@ -118,7 +119,7 @@ function UserActivation() {
       active: true,
     };
 
-    fetch(`http://127.0.0.1:4600/activateUser/${id}`, {
+    fetch(`${API}/activateUser/${id}`, {
       method: "PUT",
       body: JSON.stringify(obj),
       headers: { "content-type": "application/json" },
