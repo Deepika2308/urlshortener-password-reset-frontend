@@ -113,13 +113,14 @@ function DecideHomePage() {
 //users are allowed to login only if this token is true
 //will be executed when link in the mail clicked during registration
 function UserActivation() {
+  console.log("UserActivation page");
   let { id } = useParams();
   useEffect(() => {
     let obj = {
       active: true,
     };
 
-    fetch(`${API}/activateUser/${id}`, {
+    fetch(`${API}/activateUser/`+id, {
       method: "PUT",
       body: JSON.stringify(obj),
       headers: { "content-type": "application/json" },
