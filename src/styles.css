@@ -1,0 +1,17 @@
+
+.profileContainer{
+    height:3em;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right:3em;
+}
+
+.daily-counts,.monthly-counts{
+    border:4px solid gray;
+}
+
+@media (max-width:500px) {
+    .daily-counts,.monthly-counts{
+        width:60vw;
+    }
+}
